@@ -5,61 +5,127 @@ function addToPage(string){
 
 // let's write a function that accepts two arguments then adds them together. If the arguments aren't both numbers, concatenate that with the other argument and a space between the args, otherwise perform addition
 // TO DO
-
+function addTheValues(arg1, arg2){
+    if(isNaN(arg1) || isNaN(arg2)){
+        addToPage(arg1 + " " + arg2);
+    }
+    else{
+        addToPage("Both arguments are numbers. When added the result is: " + (arg1 + arg2));
+    }
+}
 // call the function a few times with different parameters
 // TO DO
+
+addTheValues(10, 24);
+addTheValues("Spaghetti", "Carbonara");
+addTheValues(5, "Golden Rings");
+addTheValues("Spider-Man", 2);
 
 // let's talk about scope and see it in action
 // function with a local variable to display to the screen
 // TO DO
 
+function scopeExample (){
+    let localVariable = "This is a local variable from the scopeVariable Function";
+    addToPage(localVariable);
+}
+
 // do functions execute when you don't call them?
 // TO DO
+
+scopeExample();
 
 // this won't work because this variable does not exist outside of the scopeExample function
 // try to access that local variable from the previous function
 // TO DO
 
-
 // let's create a global score variable
 // TO DO
+
+let score = 0;
 
 // now let's write a function that will add two to the current score each time it's called
 // TO DO
 
+function scorePlusTwo(){
+    return score +=2;
+}
+
 // we could also have a function for a three-pointer
 // TO DO
+
+function scorePlusThree(){
+    return score +=3;
+}
 
 // now let's call that a couple of times, then write the current score to the page
 // TO DO
 
+addToPage("The current Score is " + score);
+scorePlusThree();
+scorePlusTwo();
+addToPage("The current Score is " + score);
+scorePlusTwo();
+addToPage("The current Score is " + score);
+
 // don't forget, you can call a function that returns a value and assign that returned value to a variable
 // this function will double the parameter's value and return it
 // TO DO
-
 // let's create a number variable and initialize it to a value of 5
 // TO DO
+
+let number = 5;
+
+function doubleMyNumber(number){
+    return number *=2;
+}
+
 
 // now let's call doubleMyNumber and pass in number as the parameter, then assign the returned value back to number
 // TO DO
 
+doubleMyNumber(number);
+
 // and let's write that value to the page
 // TO DO
+
+addToPage(number);
 
 // let's re-write that last function as an arrow function and use it to double the number variable again
 // TO DO
 
+let doubleMyNumberArrow = (number) => number *=2;
+
 // now call that function again
 // TO DO
 
+addToPage(doubleMyNumberArrow(25));
+
 // and write the value to the page again
 // TO DO
+
 
 // write a function to convert an amount of change under one dollar 
 // to the number and type of coins needed to make that change
 // we will return the number of each type of coin in order using an array like this:
 // [quarters, dimes, nickels, pennies]
 // TO DO
+
+function calcChange(amount){
+    
+    let quarters = Math.floor(amount / 25);
+    amount = amount - (quarters * 25);
+
+    let dimes = Math.floor(amount/10);
+    amount = amount -(dimes * 10);
+
+    let nickels = Math.floor(amount/5);
+    amount = amount -(nickels * 5);
+
+    let pennies = amount;
+
+    return [quarters, dimes, nickels, pennies];
+}
 
 
 // practice from one of the zyBooks activities
@@ -77,22 +143,29 @@ function addToPage(string){
 // XXXXXX
 // XXXXXX
 // Convert into a drawBox function
-if(boxChar === undefined){
-    boxChar = "X";
-}
+
 // you could also write the code below to assign the value to the boxChar variable 
 // let boxChar = boxChar || "X";
 
-for (let r = 0; r < numRows; r++) {
-    let line = "";
-    for (let c = 0; c < numCols; c++) {
-        line += boxChar;
-    }
-    console.log(line);
-}
 
 // call our new function with different arguments
 // TO DO
+
+function drawBox(numRows, numCols, boxChar){
+    if(boxChar === undefined){
+        boxChar = "X";
+    }
+    for (let r = 0; r < numRows; r++) {
+        let line = "";
+        for (let c = 0; c < numCols; c++) {
+            line += boxChar;
+        }
+        console.log(line);
+    }
+}
+
+drawBox(5, 6, "?");
+drawBox(10, 10);
 
 
 // ------------------------------------
